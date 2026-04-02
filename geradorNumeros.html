@@ -87,6 +87,28 @@ body.dark button{
 body.dark #shareBtn{
  background:linear-gradient(145deg,#42a5f5,#1565c0);
 }
+
+.mode-row {
+  align-items: flex-end;
+}
+
+.mode-select {
+  flex: 1;
+}
+
+.mode-select select {
+  width: 100%;
+}
+
+/* 🔥 Corrige o botão (ele estava 100%) */
+#themeBtn {
+  width: auto;
+  height: 35px;
+  padding: 0 10px;
+  margin-top: 22px;
+  margin-bottom: 7px;
+  white-space: nowrap;
+}
 </style>
 </head>
 
@@ -94,14 +116,28 @@ body.dark #shareBtn{
 <div class="container">
 <h1>Numeros Aleatórios</h1>
 
-<h2>Modo de sequência</h2>
+<!-- <h2>Modo de sequência</h2>
 <select id="modeSelect">
 <option value="random">🎲 Aleatório</option>
 <option value="balanced" selected>⚖️ Equilibrado</option>
 <option value="aggressive">🔥 Agressivo</option>
 </select>
 
-<button id="themeBtn">🌙 Alternar Tema</button>
+<button id="themeBtn">🌙 Alternar Tema</button> -->
+
+
+<div class="inline-row mode-row">
+  <div class="mode-select">
+    <h2>Modo de sequência</h2>
+    <select id="modeSelect">
+      <option value="random">🎲 Aleatório</option>
+      <option value="balanced" selected>⚖️ Equilibrado</option>
+      <option value="aggressive">🔥 Agressivo</option>
+    </select>
+  </div>
+
+  <button id="themeBtn">🌙</button>
+</div>
 
 <h2>Qtd números</h2>
 
