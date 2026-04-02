@@ -6,155 +6,87 @@
 <title>Numeros Aleatórios</title>
 
 <style>
-* {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-   font-family: Arial, sans-serif;
-}
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
 
 body {
-   display: flex;
-   justify-content: center;
-   align-items: flex-start;
-   min-height: 100vh;
-   background-color: #f5f5dc;
-   padding-top: 20px;
-   transition: background 0.3s ease;
+ display:flex; justify-content:center; align-items:flex-start;
+ min-height:100vh; background-color:#f5f5dc; padding-top:20px;
+ transition:background .3s ease;
 }
 
 .container {
-   max-height: 90vh;
-   display: flex;
-   flex-direction: column;
-   background-color: white;
-   box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-   border-radius: 10px;
-   padding: 17px;
-   text-align: center;
-   width: 80%;
-   max-width: 350px;
-   border: 2px solid #4caf50;
-   transition: all 0.3s ease;
+ max-height:90vh; display:flex; flex-direction:column;
+ background:white; box-shadow:0 6px 14px rgba(0,0,0,.2);
+ border-radius:10px; padding:17px; text-align:center;
+ width:80%; max-width:350px; border:2px solid #4caf50;
+ transition:all .3s ease;
 }
 
 #numbersContainer {
-   max-height: 300px;
-   overflow-y: auto;
-   margin-top: 7px;
-   padding: 7px;
-   border: 1px solid #d1c4e9;
-   border-radius: 8px;
-   background-color: #ede7f6;
-   transition: all 0.3s ease;
+ max-height:300px; overflow-y:auto; margin-top:7px; padding:7px;
+ border:1px solid #d1c4e9; border-radius:8px; background:#ede7f6;
 }
 
-h1 { color: #2e7d32; margin-bottom: 5px; }
-h2 { margin: 5px 0; }
+h1 { color:#2e7d32; margin-bottom:5px; }
+h2 { margin:5px 0; }
 
-select, input {
-   padding: 7px;
-   margin-bottom: 7px;
-   width: 100%;
-}
+select, input { padding:7px; margin-bottom:7px; width:100%; }
+
+.inline-row { display:flex; gap:6px; }
+.inline-row select { flex:1; }
 
 .row {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   gap: 8px;
-   margin-top: 11px;
-   padding: 10px;
-   border: 2px solid #388e3c;
-   border-radius: 8px;
-   background: #f0f9e8;
+ display:flex; flex-wrap:wrap; justify-content:center;
+ gap:8px; margin-top:11px; padding:10px;
+ border:2px solid #388e3c; border-radius:8px; background:#f0f9e8;
 }
 
 span {
-   width: 30px;
-   height: 30px;
-   border-radius: 50%;
-   background: linear-gradient(145deg, #ffd54f, #ffb300);
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   font-weight: bold;
-   color: #333;
-   font-size: 12px;
+ width:30px; height:30px; border-radius:50%;
+ background:linear-gradient(145deg,#ffd54f,#ffb300);
+ display:flex; align-items:center; justify-content:center;
+ font-weight:bold; color:#333; font-size:12px;
 }
 
-/* 📱 Responsivo - telas pequenas */
-@media (max-width: 400px) {
-   span {
-      width: 25px;
-      height: 25px;
-      font-size: 11px;
-   }
-
-   .row {
-      gap: 5px;
-      padding: 8px;
-   }
+@media(max-width:400px){
+ span{width:25px;height:25px;font-size:11px}
+ .row{gap:5px;padding:8px}
 }
 
 button {
-   margin-top: 10px;
-   padding: 12px;
-   width: 100%;
-   background: #388e3c;
-   color: white;
-   border: none;
-   border-radius: 7px;
-   cursor: pointer;
-   transition: all 0.2s ease;
+ margin-top:10px; padding:12px; width:100%;
+ background:#388e3c; color:white; border:none;
+ border-radius:7px; cursor:pointer;
 }
+button:active{transform:scale(.96)}
 
-button:active { transform: scale(0.96); }
+.buttons{display:flex;gap:10px}
+#shareBtn{background:#1976d2}
 
-.buttons {
-   display: flex;
-   gap: 10px;
+/* DARK */
+body.dark{background:radial-gradient(circle at top,#1a1a2e,#0f0f1a)}
+body.dark .container{
+ background:linear-gradient(145deg,#1f1f2e,#181824);
+ color:#e0e0ff; border:1px solid #7c4dff;
 }
-
-#shareBtn { background: #1976d2; }
-
-/* 🌙 DARK MODE PREMIUM */
-body.dark {
-   background: radial-gradient(circle at top, #1a1a2e, #0f0f1a);
+body.dark h1{color:#b388ff}
+body.dark #numbersContainer{
+ background:linear-gradient(145deg,#2a2a40,#202035);
+ border:1px solid #7c4dff;
 }
-
-body.dark .container {
-   background: linear-gradient(145deg, #1f1f2e, #181824);
-   color: #e0e0ff;
-   border: 1px solid #7c4dff;
-   box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+body.dark .row{
+ background:linear-gradient(145deg,#1a2a1a,#102010);
+ border-color:#66bb6a;
 }
-
-body.dark h1 { color: #b388ff; }
-
-body.dark #numbersContainer {
-   background: linear-gradient(145deg, #2a2a40, #202035);
-   border: 1px solid #7c4dff;
+body.dark span{
+ background:linear-gradient(145deg,#ffca28,#ff8f00);
 }
-
-body.dark .row {
-   background: linear-gradient(145deg, #1a2a1a, #102010);
-   border-color: #66bb6a;
+body.dark button{
+ background:linear-gradient(145deg,#7c4dff,#512da8);
 }
-
-body.dark span {
-   background: linear-gradient(145deg, #ffca28, #ff8f00);
-   color: #1a1a1a;
+body.dark #shareBtn{
+ background:linear-gradient(145deg,#42a5f5,#1565c0);
 }
-
-body.dark button {
-   background: linear-gradient(145deg, #7c4dff, #512da8);
-}
-
-body.dark #shareBtn {
-   background: linear-gradient(145deg, #42a5f5, #1565c0);
-}
-
 </style>
 </head>
 
@@ -172,18 +104,15 @@ body.dark #shareBtn {
 <button id="themeBtn">🌙 Alternar Tema</button>
 
 <h2>Qtd números</h2>
-<select id="numSelect">
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
-<option value="11">11</option>
-<option value="12">12</option>
-<option value="13">13</option>
-<option value="14">14</option>
-<option value="15">15</option>
+
+<div class="inline-row">
+<select id="gameType">
+<option value="mega">Mega-Sena</option>
+<option value="loto">Lotofácil</option>
 </select>
+
+<select id="numSelect"></select>
+</div>
 
 <h2>Qtd de Sequencias</h2>
 <input type="number" id="numbersCount" min="1" max="10" value="1">
@@ -192,47 +121,86 @@ body.dark #shareBtn {
 
 <div class="buttons">
 <button id="generateBtn">Gerar</button>
-<button id="shareBtn">Compartilhar</button>
+<button id="shareBtn" onclick="shareGame()">Compartilhar</button>
 </div>
 </div>
 
 <script>
-const generateBtn = document.getElementById('generateBtn');
-const shareBtn = document.getElementById('shareBtn');
-const numbersContainer = document.getElementById('numbersContainer');
+const numbersContainer=document.getElementById('numbersContainer');
 
-function rand(max){ return Math.floor(Math.random()*max)+1; }
+function rand(max){return Math.floor(Math.random()*max)+1}
 
+function updateOptions(){
+ const type=document.getElementById('gameType').value;
+ const select=document.getElementById('numSelect');
+ select.innerHTML='';
+
+ if(type==='mega'){
+  for(let i=6;i<=15;i++) select.innerHTML+=`<option>${i}</option>`;
+ }else{
+  for(let i=15;i<=20;i++) select.innerHTML+=`<option>${i}</option>`;
+ }
+}
+
+/* 🔢 LOTOFÁCIL GRID 5x5 */
+function getGridStats(arr){
+ let rows=[0,0,0,0,0];
+ let cols=[0,0,0,0,0];
+
+ arr.forEach(n=>{
+  let r=Math.floor((n-1)/5);
+  let c=(n-1)%5;
+  rows[r]++; cols[c]++;
+ });
+
+ return {rows,cols};
+}
+
+function isLotofacilAggressive(arr){
+ const {rows,cols}=getGridStats(arr);
+
+ const rowSpread=rows.filter(r=>r>=2).length>=4;
+ const colSpread=cols.filter(c=>c>=2).length>=4;
+
+ const even=arr.filter(n=>n%2===0).length;
+ const odd=arr.length-even;
+ const parityOk=(even>=7 && odd>=7);
+
+ return rowSpread && colSpread && parityOk;
+}
+
+/* 🧠 REGRAS */
 function hasBalancedParity(arr){
- const even = arr.filter(n=>n%2===0).length;
- const odd = arr.length-even;
- return even>=2 && odd>=2;
+ const even=arr.filter(n=>n%2===0).length;
+ return even>=Math.floor(arr.length/3);
 }
 
-function isWellDistributed(arr){
- const ranges=[0,0,0,0,0,0];
- arr.forEach(n=> ranges[Math.floor((n-1)/10)]++);
- return ranges.filter(r=>r>0).length>=4;
+function isWellDistributed(arr,max){
+ const size=max===60?10:5;
+ const ranges=new Array(Math.ceil(max/size)).fill(0);
+ arr.forEach(n=>ranges[Math.floor((n-1)/size)]++);
+ return ranges.filter(r=>r>0).length>=Math.floor(ranges.length/2);
 }
 
-function isAggressive(arr){
- return hasBalancedParity(arr) && isWellDistributed(arr) && new Set(arr.map(n=>Math.floor((n-1)/5))).size>=4;
+function isAggressive(arr,max,type){
+ if(type==='loto') return isLotofacilAggressive(arr);
+ return hasBalancedParity(arr)&&isWellDistributed(arr,max)&&
+ new Set(arr.map(n=>Math.floor((n-1)/5))).size>=4;
 }
 
-function generateGame(qtd,mode){
- let tries=0;
- let arr;
+function generateGame(qtd,mode,max,type){
+ let arr,tries=0;
  do{
   let s=new Set();
-  while(s.size<qtd) s.add(rand(60));
+  while(s.size<qtd) s.add(rand(max));
   arr=[...s].sort((a,b)=>a-b);
   tries++;
 
   if(mode==='random') break;
 
  }while(
-  (mode==='balanced' && (!hasBalancedParity(arr)||!isWellDistributed(arr))) ||
-  (mode==='aggressive' && !isAggressive(arr))
+  (mode==='balanced' && (!hasBalancedParity(arr)||!isWellDistributed(arr,max))) ||
+  (mode==='aggressive' && !isAggressive(arr,max,type))
  );
  return arr;
 }
@@ -241,11 +209,14 @@ function generateSequences(){
  const qtd=parseInt(document.getElementById('numSelect').value);
  const seq=parseInt(document.getElementById('numbersCount').value);
  const mode=document.getElementById('modeSelect').value;
+ const type=document.getElementById('gameType').value;
+
+ const max=type==='mega'?60:25;
 
  numbersContainer.innerHTML='';
 
  for(let i=0;i<seq;i++){
-  const nums=generateGame(qtd,mode);
+  const nums=generateGame(qtd,mode,max,type);
   const row=document.createElement('div');
   row.className='row';
 
@@ -259,10 +230,71 @@ function generateSequences(){
  }
 }
 
-const themeBtn=document.getElementById('themeBtn');
-themeBtn.onclick=()=>document.body.classList.toggle('dark');
 
-generateBtn.onclick=generateSequences;
+function shareGame() {
+  const container = document.getElementById("numbersContainer");
+
+  if (!container) {
+    alert("Erro ao localizar os números.");
+    return;
+  }
+
+  // 👉 Pega cada sequência como um "bloco" filho
+  const sequences = container.children;
+
+  if (!sequences || sequences.length === 0) {
+    alert("⚠️ Gere um jogo antes de compartilhar.");
+    return;
+  }
+
+  let finalText = "";
+
+  for (let i = 0; i < sequences.length; i++) {
+    const seq = sequences[i];
+
+    // 🔥 Extrai números dessa sequência
+    const numbersArray = seq.innerText.match(/\d{1,2}/g);
+
+    if (numbersArray && numbersArray.length > 0) {
+      const numbers = numbersArray.join(" - ");
+      finalText += `Jogo ${i + 1}: ${numbers}\n`;
+    }
+  }
+
+  // ⚠️ validação FINAL (garantia absoluta)
+  if (!finalText.trim()) {
+    alert("⚠️ Gere um jogo antes de compartilhar.");
+    return;
+  }
+
+  const gameType = document.getElementById("gameType").value;
+  const mode = document.getElementById("modeSelect").value;
+
+  const gameName = gameType === "mega" ? "Mega-Sena" : "Lotofácil";
+
+  const text = `🎯 ${gameName}
+Modo: ${mode}
+
+${finalText}`;
+
+  if (navigator.share) {
+    navigator.share({
+      title: "Jogo de Loteria",
+      text: text
+    });
+  } else {
+    navigator.clipboard.writeText(text)
+      .then(() => alert("Jogo copiado!"))
+      .catch(() => alert("Erro ao copiar."));
+  }
+}
+
+/* eventos */
+document.getElementById('generateBtn').onclick=generateSequences;
+document.getElementById('themeBtn').onclick=()=>document.body.classList.toggle('dark');
+document.getElementById('gameType').onchange=updateOptions;
+
+updateOptions();
 </script>
 
 </body>
